@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Register New Account</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<form th:action="@{/account/register}" th:object="${account}"
+		method="post">
+		<table cellpadding="2" cellspacing="2">
+
+			 <tr>
+				<td>Username</td>
+				<td><input type="text" th:field="*{username}" /></td>
+			 <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:class="error"></td>
+			</tr>
+			 
+			<tr>
+				<td>password</td>
+				<td><input type="password" th:field="*{password}" /></td>
+				<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:class="error"></td>
+		</tr>
+			
+			<tr>
+				<td>age</td>
+				<td><input type="text" th:field="*{age}" /></td>
+				<td th:if="${#fields.hasErrors('age')}" th:errors="*{age}" th:class="error"></td>
+			</tr>
+			
+			
+			<tr>
+				<td>Email</td>
+				<td><input type="text" th:field="*{email}" /></td>
+				<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="error"></td>
+			</tr>
+			
+			<tr>
+				<td>Website</td>
+				<td><input type="text" th:field="*{website}" /></td>
+				<td th:if="${#fields.hasErrors('website')}" th:errors="*{website}" th:class="error"></td>
+			</tr>
+			
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td colspan="2"><input type="submit" value="save" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
